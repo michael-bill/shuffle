@@ -1,0 +1,39 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Link shuffle</title>
+</head>
+<body style="font-family: monospace;">
+    <textarea name="" id="links" cols="50" rows="10"></textarea>
+    <br>
+    <br>
+    <button id="shuffle">Shuffle</button>
+    <p id="result"></p>
+</body>
+<script type="text/javascript">
+    document.getElementById('shuffle').onclick = function () {
+        links = document.getElementById('links').value.split('\n');
+        links = shuffle(links);
+        var res = ''
+        for (var i of links) res += i + "<br>";
+        document.getElementById('result').innerHTML = res;
+    }
+
+    function shuffle(array) {
+        var result = [];
+        var len = array.length;
+        for (var i = 0; i < len; i++) {
+            index = getRandomInt(0, array.length);
+            result.push(array[index]);
+            array.splice(index, 1);
+        }
+        return result;
+    }
+
+    function getRandomInt(min, max) {
+        return Math.floor(Math.random() * (max - min)) + min;
+    }
+</script>
+</html>
