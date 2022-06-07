@@ -14,7 +14,7 @@
 </body>
 <script type="text/javascript">
     document.getElementById('shuffle').onclick = function () {
-        links = document.getElementById('links').value.split('\n');
+        links = document.getElementById('links').value.trim().split('\n');
         links = shuffle(links);
         var res = ''
         for (var i of links) res += i + "<br>";
